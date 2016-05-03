@@ -1,2 +1,5 @@
 env
+config
+credentials
 *.pyc
+serverless-demo

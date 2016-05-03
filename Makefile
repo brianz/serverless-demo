@@ -10,4 +10,4 @@ shell :
 	docker run --rm -it \
 		-v `pwd`:/code \
 		--env-file=env \
-		--name=telephony $(NAME) bash
+		--name=slsdemo $(NAME) bash
