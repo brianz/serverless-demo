@@ -1,0 +1,12 @@
+{
+  "name": "serverless-demo",
+  "custom": {
+    "meta": {
+      "name": "brianz-cco-serverless-test",
+      "region": "us-west-2"
+    }
+  },
+  "plugins": [
+    "serverless-meta-sync"
+  ]
+}
