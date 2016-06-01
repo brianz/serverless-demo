@@ -9,5 +9,4 @@ build :
 shell : 
 	docker run --rm -it \
 		-v `pwd`:/code \
-		--env-file=env \
 		--name=slsdemo $(NAME) bash
