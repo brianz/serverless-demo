@@ -41,6 +41,7 @@
   ],
   "events": [],
   "environment": {
+    "MAGIC_VARIABLE": "${magicVariable}",
     "SERVERLESS_PROJECT": "${project}",
     "SERVERLESS_STAGE": "${stage}",
     "SERVERLESS_REGION": "${region}"
