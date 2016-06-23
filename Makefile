@@ -8,5 +8,5 @@ build :
 
 shell : 
 	docker run --rm -it \
-		-v `pwd`:/code \
+		-v `pwd`/serverless-demo:/code \
 		--name=slsdemo $(NAME) bash
