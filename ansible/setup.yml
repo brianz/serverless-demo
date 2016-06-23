@@ -1,0 +1,29 @@
+- hosts: tester
+  tasks:
+  - name: install development tools
+    yum: name=@"Development Tools" state=latest
+  - name: install packages1
+    yum: name={{ item }} state=latest update_cache=yes
+         enablerepo=epel
+    with_items:
+      - autoconf
+      - automake
+  - name: install packages2
+    yum: name={{ item }} state=latest
+         enablerepo=epel
+    with_items:
+      - libtool
+  - name: install packages3
+    yum: name={{ item }} state=latest
+         enablerepo=epel
+    with_items:
+      - gcc
+      - gcc-c++
+      - libjpeg-devel
+      - libpng-devel
+      - libtiff-devel
+      - zlib-devel
+  - name: install leptonica
+    script: install-leptonica.sh creates=/usr/local/bin/convertfilestopdf
+  - name: install tesseract
+    script: install-tesseract.sh
