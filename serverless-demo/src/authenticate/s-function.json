@@ -1,27 +1,29 @@
 {
-  "name": "hello",
+  "name": "authenticate",
   "runtime": "python2.7",
   "description": "Serverless Lambda function for project: serverless-demo",
   "customName": false,
   "customRole": false,
-  "handler": "handler.handler",
+  "handler": "authenticate/handler.handler",
   "timeout": 6,
-  "memorySize": 1024,
+  "memorySize": 256,
   "authorizer": {},
   "custom": {
     "excludePatterns": []
   },
   "endpoints": [
     {
-      "path": "hello",
-      "method": "GET",
+      "path": "authenticate",
+      "method": "POST",
       "type": "AWS",
       "authorizationType": "none",
       "authorizerFunction": false,
       "apiKeyRequired": false,
       "requestParameters": {},
       "requestTemplates": {
-        "application/json": ""
+        "application/json": {
+          "token": "$input.json('$.token')"
+        }
       },
       "responses": {
         "400": {
@@ -29,11 +31,9 @@
         },
         "default": {
           "statusCode": "200",
-          "responseParameters": {
-            "method.response.header.Content-Type": "'text/html'"
-          },
+          "responseParameters": {},
           "responseTemplates": {
-            "text/html": "$input.path('$')"
+            "application/json;charset=UTF-8": ""
           }
         }
       }
@@ -41,7 +41,6 @@
   ],
   "events": [],
   "environment": {
-    "MAGIC_VARIABLE": "${magicVariable}",
     "SERVERLESS_PROJECT": "${project}",
     "SERVERLESS_STAGE": "${stage}",
     "SERVERLESS_REGION": "${region}"
